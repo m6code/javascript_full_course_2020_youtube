@@ -4,16 +4,30 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Title')
+logTitle('Objects')
 /* coding examples */
 
-// Variables
-var name = "Jone Jon";
-var age = 35;
-var hasLicense = true;
-var empty = undefined;
+// Objects
+var person = {
+	name: "Jone Jon",
+	age: 35,
+	hasLicense: true,
+	dob: "03.03.2020",
+	address:{
+		firstLine: "234",
+		postCode: "45675",
+		country: "Nigeria",
+		countryCode: "NG",
+		currency: "NGN"
 
-log(name + " type= " + typeof name);
-log(age + " type= " + typeof age);
-log(hasLicense + " type= " +typeof hasLicense);
-log(empty + " type= " + typeof empty);
+	}
+};
+
+log(JSON.stringify(person));
+
+log(person.name);
+log(person.age);
+log(person.hasLicense);
+log(JSON.stringify(person.address));
+
+log(Object.values(person));
