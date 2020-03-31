@@ -4,25 +4,30 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Arrays')
+logTitle('Functions')
 /* coding examples */
 
-// Arrays
-var names = ["Jane", "Smith", "Henry", "Marry", "Murray"];
-
-log(names);
-
-log(names[3]);
-log(names.length);
-
-log("")
-log("Looping Through Array")
-for(var n of names){
-	log(n);
+function sum(a, b){
+	// start of function
+	// Define logic
+	log("Adding " + a +" + " + b);
+	log("result = " + (a+b));
+	// end of funtion
 }
 
-log("")
-log("Looping Through Array with forEach")
-names.forEach(function(n, index){
-	log(index + " - " + n);
-});
+sum(30,10);
+sum(590, 345);
+
+function multiply(a, b){
+	log(a +" * " + b);
+	log("result = " + (a*b));
+	
+}
+
+multiply(20,2);
+
+function divide(a,b){
+	log( a +" / " + b);
+	log("result = " + (a/b));
+}
+divide(12,3);
