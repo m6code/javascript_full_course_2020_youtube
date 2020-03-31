@@ -4,30 +4,25 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Objects')
+logTitle('Arrays')
 /* coding examples */
 
-// Objects
-var person = {
-	name: "Jone Jon",
-	age: 35,
-	hasLicense: true,
-	dob: "03.03.2020",
-	address:{
-		firstLine: "234",
-		postCode: "45675",
-		country: "Nigeria",
-		countryCode: "NG",
-		currency: "NGN"
+// Arrays
+var names = ["Jane", "Smith", "Henry", "Marry", "Murray"];
 
-	}
-};
+log(names);
 
-log(JSON.stringify(person));
+log(names[3]);
+log(names.length);
 
-log(person.name);
-log(person.age);
-log(person.hasLicense);
-log(JSON.stringify(person.address));
+log("")
+log("Looping Through Array")
+for(var n of names){
+	log(n);
+}
 
-log(Object.values(person));
+log("")
+log("Looping Through Array with forEach")
+names.forEach(function(n, index){
+	log(index + " - " + n);
+});
