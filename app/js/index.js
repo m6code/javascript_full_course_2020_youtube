@@ -4,30 +4,38 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Functions')
+logTitle('Loops')
 /* coding examples */
 
-function sum(a, b){
-	// start of function
-	// Define logic
-	log("Adding " + a +" + " + b);
-	log("result = " + (a+b));
-	// end of funtion
+log("For Loops");
+for (var i = 0; i < 3; i++){
+	log(i);
 }
 
-sum(30,10);
-sum(590, 345);
 
-function multiply(a, b){
-	log(a +" * " + b);
-	log("result = " + (a*b));
-	
+var persons = [
+	{name: "Alex", age: 23},
+	{name: "Maria", age: 35}
+];
+
+for( var i = 0; i < persons.length; i++){
+	log(persons[i].name);
+	log(persons[i].age);
+	log("-----------------");
 }
 
-multiply(20,2);
-
-function divide(a,b){
-	log( a +" / " + b);
-	log("result = " + (a/b));
+log("While Loops");
+var num = 0;
+while(num < 5){
+	log(num);
+	num = num + 1;
 }
-divide(12,3);
+
+
+
+log("Do While Loops");
+var i = 0;
+do{
+	i ++;
+	log(i);
+}while(i < 5)
