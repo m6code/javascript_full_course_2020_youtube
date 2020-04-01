@@ -4,66 +4,29 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Switch Statement')
+logTitle('Map | Filter | Reduce')
 /* coding examples */
 
-var person = {
-	name: "Annabella",
-	age: 17
-}
+// Map
+var map = [1,2,3,4,5].map(function(n){
+	return n* 5;
+});
 
-switch(person.age){
-	case 17:
-		log(person.name + " is about to an adult");
-		break;
-	case 18: 
-		log(person.name + " is an adult ");
-		break;
-	default:
-		log(person.name + " is not an adult ");
+log("[].map")
+log(map);
 
-}
+// Filter
+log("[].filter");
+var filterEven = [0,1,2,3,4,5,6,7,8,9,10].filter(function(n){
+	return n%2 == 0;
+});
 
-var person2 = {
-	name: "Abaga",
-	age: 38
-}
+log(filterEven)
 
-switch(true){
-	case (person2.age == 17):
-		log(person2.name + " is about to an adult");
-		break;
-	case (person2.age >= 18): 
-		log(person2.name + " is an adult ");
-		break;
-	default:
-		log(person2.name + " is not an adult ");
+//Reduce
+log("[].reduce")
+var reduce = [1,2,3,4,5].reduce(function(accumulator, current){
+	return accumulator + current;
+});
 
-}
-
-switch(new Date().getDay()){
-	case 6:
-		log("Saturday");
-		break;
-	case 5:
-		log("Friday");
-		break;
-	case 4:
-		log("Thursday");
-		break;
-	case 3:
-		log("Wednesday");
-		break;
-	case 2:
-		log("Tuesday");
-		break;
-	case 1:
-		log("Monday");
-		break;
-	case 0:
-		log("Sunday");
-		break
-	default:
-		log("Hmmm...");
-		break;
-}
+log(reduce);
