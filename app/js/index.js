@@ -4,14 +4,66 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('If Statement')
+logTitle('Switch Statement')
 /* coding examples */
 
-var bool = false;
-if (bool){
-	log("bool var was true");
-} else if(!bool) {
-	log("bool var was false");
-} else{
-	log("Not found");
+var person = {
+	name: "Annabella",
+	age: 17
+}
+
+switch(person.age){
+	case 17:
+		log(person.name + " is about to an adult");
+		break;
+	case 18: 
+		log(person.name + " is an adult ");
+		break;
+	default:
+		log(person.name + " is not an adult ");
+
+}
+
+var person2 = {
+	name: "Abaga",
+	age: 38
+}
+
+switch(true){
+	case (person2.age == 17):
+		log(person2.name + " is about to an adult");
+		break;
+	case (person2.age >= 18): 
+		log(person2.name + " is an adult ");
+		break;
+	default:
+		log(person2.name + " is not an adult ");
+
+}
+
+switch(new Date().getDay()){
+	case 6:
+		log("Saturday");
+		break;
+	case 5:
+		log("Friday");
+		break;
+	case 4:
+		log("Thursday");
+		break;
+	case 3:
+		log("Wednesday");
+		break;
+	case 2:
+		log("Tuesday");
+		break;
+	case 1:
+		log("Monday");
+		break;
+	case 0:
+		log("Sunday");
+		break
+	default:
+		log("Hmmm...");
+		break;
 }
