@@ -6,7 +6,7 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('ES6 Classes');
+logTitle('Classes inheritance ');
 /* coding examples */
 
 /*
@@ -37,6 +37,10 @@ class Animal{
 	sleep(){
 		log(`${this.name} is sleeping`);
 	}
+
+	static aStaticMethod(){
+		log(`I am a static method you don't need an instance the Animal class to call me`)
+	}
 }
 
 
@@ -45,7 +49,29 @@ const sparkles = new Animal("Sparkles", 4);
 sparkles.eat();
 sparkles.sleep();
 
-log("------------------------------------------------")
+log("------------------------------------------------");
 const masta = new Animal("Beast", 44);
 masta.eat();
 masta.sleep();
+
+log("------------------------------------------------");
+
+class Dog  extends Animal{
+	constructor(name, age, breed){
+		super(name, age);
+		this.breed = breed;
+	}
+
+	showBreed(){
+		log(`${this.breed} is ${this.age} years and of ${this.breed} breed`);
+	}
+}
+
+
+const mk = new Dog("MiliKa", 2 ,"BullDog");
+mk.showBreed();
+mk.sleep();
+mk.eat();
+
+log("_________________________________________________")
+Animal.aStaticMethod();
