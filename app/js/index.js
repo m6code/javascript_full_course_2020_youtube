@@ -6,11 +6,46 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Function Default Parameters');
+logTitle('ES6 Classes');
 /* coding examples */
 
-const calPay = (yearSalary, bonus = 0) => yearSalary + bonus;
+/*
+-------------------------------------------------
++ Classes are blueprints
+	* Properties
+	* Behaviours
+-------------------------------------------------	
++ OOP?
 
-log(calPay(443500)); // no second parameter passed so default is used
-log(calPay(443210, 8790)); // second parameter passed here is used
+_________________________________________________
++ We can model real world examples
+	* Animal, Human, Ball, Shoe, Anything really
+-------------------------------------------------
+*/
 
+class Animal{
+	constructor(name, age){
+		log(`${name} is an animal, ${age} years and was created`);
+		this.age = age;
+		this.name = name;
+	}
+
+	eat() {
+		log(`${this.name} is eating`);
+	}
+
+	sleep(){
+		log(`${this.name} is sleeping`);
+	}
+}
+
+
+
+const sparkles = new Animal("Sparkles", 4);
+sparkles.eat();
+sparkles.sleep();
+
+log("------------------------------------------------")
+const masta = new Animal("Beast", 44);
+masta.eat();
+masta.sleep();
