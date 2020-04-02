@@ -6,12 +6,30 @@ import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from './Animal';
 
-logTitle('Template Literials')
+logTitle('Spread Operators Arrays')
 /* coding examples */
 
-const name = "Anna";
-const country = "Nigeria";
-const age = 24;
+const arrayOne = ["Marian", "Anna", "Alex"];
+const arrayTwo = ["Said", "Ismail", "Aisha"];
 
-log("Name: " + name + " Country: " + country + " age: " + age);
-log(`Name: ${name} Country: ${country} Age: ${age} `);
+const concatArray = [...arrayOne, ...arrayTwo];
+
+concatArray.forEach(function(name) {
+	log(name);
+});
+
+const name = "DRILL";
+const nameToArray = [...name];
+
+nameToArray.forEach(function(letter){
+	log(letter);
+});
+
+const addNumbers = function(n, n1, n2){
+	return n + n1 + n2;
+}
+
+const numbers = [13,23,44];
+
+const sum = addNumbers(...numbers);
+log(sum);
