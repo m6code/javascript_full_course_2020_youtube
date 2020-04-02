@@ -4,22 +4,41 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-import Animal from './Animal';
 
-logTitle('Spread Operators - Objects')
+
+logTitle('Arrow Functions')
 /* coding examples */
 
-const address = {
-	city: "LA",
-	country: "USA",
-	postCode: "LA44"
-}
+const hello = () => {
+  const es6 = 'ES6';
+  return `Hello ${es6}`;
+};
+// const hello = function() {
+//   const es6 = 'ES6';
+//   return `Hello ${es6}`;
+// };
 
-const name = {
-	first : "Andy",
-	last : "Jones"
-}
 
-const person = {...name, ...address};
+const powers =
+ [1,2,3,4,5].map((number, index) => Math.pow(number, index));
+// const powers = [1,2,3,4,5].map(function(number, index) {
+//   return Math.pow(number, index);
+// });
 
-log(JSON.stringify(person, null, 2));
+
+const add = (n1, n2) => n1 + n2;
+// const add = function(n1, n2) {
+//   return n1 + n2;
+// };
+
+
+const milesToKm = miles => miles * 1.60934;
+// const milesToKm = function(miles) {
+//   return miles * 1.60934;
+// };
+
+
+log(hello());
+log(powers);
+log(add(100,100));
+log(milesToKm(200));
