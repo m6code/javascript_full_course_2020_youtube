@@ -6,9 +6,12 @@ import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from './Animal';
 
-logTitle('Default Exports and imports')
+logTitle('Template Literials')
 /* coding examples */
 
-var animal = new Animal();
-log(animal.getClassType());
+const name = "Anna";
+const country = "Nigeria";
+const age = 24;
 
+log("Name: " + name + " Country: " + country + " age: " + age);
+log(`Name: ${name} Country: ${country} Age: ${age} `);
