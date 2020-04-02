@@ -6,15 +6,41 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Array Destructuring');
+logTitle('Object Destructuring');
 /* coding examples */
 
-const names = ['Annabel', 'Mariam', 'Joe', 'Mark', 'Matt'];
+const getUser = () => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    gender: 'male',
+    address: {
+      country: 'United States',
+      city: 'California',
+      postCode: 'CA',
+      fullAddress: {
+        doorNumber: 22,
+        street: 'LA st'
+      }
+    },
+    age: 29
+  }
+};
 
-const [anna, mariam, joe] = names;
-// const anna = names[0];
-// const mariam = names[1];
-// const joe = names[2];
+const user = getUser();
 
-log(`${anna} ${mariam} ${joe}`);
+// const name = user.name;
+// const age = user.age;
+const country = user.address.country;
+const doorNumber = user.address.fullAddress.doorNumber;
+
+
+const {name, age, address :{country: theCountry} } = user;
+const {address: { fullAddress : { doorNumber: number}}} = user;
+
+log(name);
+log(age);
+log(theCountry);
+log(number);
+
 
