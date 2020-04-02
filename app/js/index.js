@@ -6,19 +6,15 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Lexical this');
+logTitle('Array Destructuring');
 /* coding examples */
- const person = {
- 	name: "Alex",
- 	cars: ["Ferrari","Lambo"],
 
- 	toString: function() {
- 		// log(`{this.name} has ${this.cars}`);
- 		this.cars.forEach(car => {
- 			log(`${this.name} has ${car}`);
- 		});
- 	}
- }
+const names = ['Annabel', 'Mariam', 'Joe', 'Mark', 'Matt'];
 
- person.toString();
+const [anna, mariam, joe] = names;
+// const anna = names[0];
+// const mariam = names[1];
+// const joe = names[2];
+
+log(`${anna} ${mariam} ${joe}`);
 
