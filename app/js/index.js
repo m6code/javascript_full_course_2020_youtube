@@ -6,30 +6,20 @@ import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from './Animal';
 
-logTitle('Spread Operators Arrays')
+logTitle('Spread Operators - Objects')
 /* coding examples */
 
-const arrayOne = ["Marian", "Anna", "Alex"];
-const arrayTwo = ["Said", "Ismail", "Aisha"];
-
-const concatArray = [...arrayOne, ...arrayTwo];
-
-concatArray.forEach(function(name) {
-	log(name);
-});
-
-const name = "DRILL";
-const nameToArray = [...name];
-
-nameToArray.forEach(function(letter){
-	log(letter);
-});
-
-const addNumbers = function(n, n1, n2){
-	return n + n1 + n2;
+const address = {
+	city: "LA",
+	country: "USA",
+	postCode: "LA44"
 }
 
-const numbers = [13,23,44];
+const name = {
+	first : "Andy",
+	last : "Jones"
+}
 
-const sum = addNumbers(...numbers);
-log(sum);
+const person = {...name, ...address};
+
+log(JSON.stringify(person, null, 2));
