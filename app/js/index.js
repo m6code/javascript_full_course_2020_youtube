@@ -6,41 +6,11 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Object Destructuring');
+logTitle('Function Default Parameters');
 /* coding examples */
 
-const getUser = () => {
-  return {
-    name: 'John',
-    surname: 'Doe',
-    gender: 'male',
-    address: {
-      country: 'United States',
-      city: 'California',
-      postCode: 'CA',
-      fullAddress: {
-        doorNumber: 22,
-        street: 'LA st'
-      }
-    },
-    age: 29
-  }
-};
+const calPay = (yearSalary, bonus = 0) => yearSalary + bonus;
 
-const user = getUser();
-
-// const name = user.name;
-// const age = user.age;
-const country = user.address.country;
-const doorNumber = user.address.fullAddress.doorNumber;
-
-
-const {name, age, address :{country: theCountry} } = user;
-const {address: { fullAddress : { doorNumber: number}}} = user;
-
-log(name);
-log(age);
-log(theCountry);
-log(number);
-
+log(calPay(443500)); // no second parameter passed so default is used
+log(calPay(443210, 8790)); // second parameter passed here is used
 
