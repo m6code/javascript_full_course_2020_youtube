@@ -9,9 +9,9 @@ import { log, logTitle } from 'logger';
 logTitle('Promises');
 /* coding examples */
 
-const promise = new Promise((resolve, reject) => {
+const namesPromise = new Promise((resolve, reject) => {
 	setTimeout(() => {
-		resolve("data back from server");
+		resolve(["John", "Jones", "E-Kelly", "Sharon"]);
 	}, 3000);
 
 	setTimeout(() => {
@@ -20,8 +20,24 @@ const promise = new Promise((resolve, reject) => {
 });
 
 
-promise.then(response =>{
-	log(response);
-}).catch(error => {
+const surnamesPromise = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		resolve(["Blake", "Manny", "Black", "James"]);
+	}, 3000);
+
+	setTimeout(() => {
+		reject(" Error, no data back from server yet");
+	}, 5000);
+});
+
+
+Promise.all([namesPromise, surnamesPromise]).then(data =>{
+	const [names, surnames] = data;
+	for (let i = 0; i<names.length; i++){
+		const name = names[i];
+		const surname = surnames[i];
+		log(`${name} ${surname}`);
+	}
+}).catch(error =>{
 	log(error);
 });
