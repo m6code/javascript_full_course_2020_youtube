@@ -6,20 +6,52 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Promises and Fetch Api');
+logTitle('Generators');
 /* coding examples */
 
-const getRandUsers = n => {
-	const fetchRandUsers = fetch(`https://randomuser.me/api/?results=${n}`);
-	fetchRandUsers.then(data => {
-		data.json().then(randUsers => {
-			log(JSON.stringify(randUsers.results.length));
-			randUsers.results.forEach(user => {
-				const {gender, name :{title: ti, first :  fname, last: lName} ,email} = user;
-				log(`${gender} - ${ti}, ${fname} ${lName} - ${email}`)
-			})
-		})
-	});
+const getStuffs = function* (){
+	yield 1;
+	yield "Hello";
+	yield true;
+	yield {name: "Alex"};
+	yield ["Mary", "browning"];
+	return "Done Done Done"
 }
 
-getRandUsers(50);
+const numbersGen = getStuffs();
+
+// console.log(numbersGen.next());
+// console.log(numbersGen.next());
+// console.log(numbersGen.next());
+// console.log(numbersGen.next());
+// console.log(numbersGen.next());
+// console.log(numbersGen.next());
+
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+
+
+
+const getNums = function* (numbers) {
+	for(let i = 0; i < numbers.length; i++){
+		yield numbers[i];
+	}
+}
+
+const getNumsGen = getNums([1,2,3,4,67]);
+
+const interval = setInterval(() => {
+	const next = getNumsGen.next();
+	if(next.done){
+		log("This Generator is done");
+		clearInterval(interval);
+	}else{
+		// const number = next.value;
+		// log(number);
+		log(next.value);
+	}
+}, 1000);
