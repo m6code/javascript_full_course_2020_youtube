@@ -6,38 +6,20 @@ import { log, logTitle } from 'logger';
 /* your imports */
 
 
-logTitle('Promises');
+logTitle('Promises and Fetch Api');
 /* coding examples */
 
-const namesPromise = new Promise((resolve, reject) => {
-	setTimeout(() => {
-		resolve(["John", "Jones", "E-Kelly", "Sharon"]);
-	}, 3000);
+const getRandUsers = n => {
+	const fetchRandUsers = fetch(`https://randomuser.me/api/?results=${n}`);
+	fetchRandUsers.then(data => {
+		data.json().then(randUsers => {
+			log(JSON.stringify(randUsers.results.length));
+			randUsers.results.forEach(user => {
+				const {gender, name :{title: ti, first :  fname, last: lName} ,email} = user;
+				log(`${gender} - ${ti}, ${fname} ${lName} - ${email}`)
+			})
+		})
+	});
+}
 
-	setTimeout(() => {
-		reject(" Error, no data back from server yet");
-	}, 5000);
-});
-
-
-const surnamesPromise = new Promise((resolve, reject) => {
-	setTimeout(() => {
-		resolve(["Blake", "Manny", "Black", "James"]);
-	}, 3000);
-
-	setTimeout(() => {
-		reject(" Error, no data back from server yet");
-	}, 5000);
-});
-
-
-Promise.all([namesPromise, surnamesPromise]).then(data =>{
-	const [names, surnames] = data;
-	for (let i = 0; i<names.length; i++){
-		const name = names[i];
-		const surname = surnames[i];
-		log(`${name} ${surname}`);
-	}
-}).catch(error =>{
-	log(error);
-});
+getRandUsers(50);
